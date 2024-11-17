@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.transaction-table th, .transaction-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaction-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.transaction-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.add-transaction-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.success-message {
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+/* Navigation bar styling */
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+nav button {
+    padding: 8px 12px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #c0392b;
+}
+
+/* Success and error message styling */
+.success-message,
+.error-message {
+    padding: 10px 15px;
+    margin: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success-message {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.error-message {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+/* Main content styling */
+.content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
