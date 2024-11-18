@@ -4,46 +4,65 @@
     <h1>Create New Transaction</h1>
     <form action="{{ route('transactions.store') }}" method="POST" id="transactionForm">
         @csrf
-
+        <input 
+        type="text" 
+        id="searchBar" 
+        placeholder='⌕ search ticket name...' 
+        onkeyup="filterTickets()"
+        style="margin-bottom: 20px; width: 100%; padding: 10px; font-size: 16px;"
+    >
+        
         @foreach($products as $product)
-            <div class="cont-crt">
-                <input 
-                    type="radio" 
-                    name="product_id" 
-                    value="{{ $product->id }}" 
-                    id="product_{{ $product->id }}" 
-                    required
-                    onclick="updateQuantityField('{{ $product->id }}')"
-                >
-                <label for="product_{{ $product->id }}" class="nameprd">
-                    <h3>{{ $product->name }}</h3>
-                    <p>
-                        @if($product->stock > 0)
-                            Stocks left: {{ $product->stock }}
-                        @else
-                            Out of stock
-                        @endif
-                    </p>
-                    <p>Price: Rp{{ number_format($product->price, 2) }}</p>
-                </label>
+        <div>
+   
 
-                <div class="trx-create">
-                    <label for="quantity_{{ $product->id }}" class="quantity-label">Quantity:</label>
-                    <div class="quantity-container">
-                        <button type="button" class="quantity-btn decrement" onclick="decreaseQuantity('{{ $product->id }}')">-</button>
-                        <input 
-                            type="number" 
-                            id="quantity_{{ $product->id }}" 
-                            name="quantities[{{ $product->id }}]" 
-                            min="1" 
-                            value="1" 
-                            class="quantity-input" 
-                            readonly
-                        >
-                        <button type="button" class="quantity-btn increment" onclick="increaseQuantity('{{ $product->id }}')">+</button>
-                    </div>
+        <div class="cont-crt" 
+            data-name="{{ strtolower($product->name) }}">
+            <input 
+                type="radio" 
+                name="product_id" 
+                value="{{ $product->id }}" 
+                id="product_{{ $product->id }}" 
+                required
+                onclick="updateQuantityField('{{ $product->id }}')"
+            >
+            <label for="product_{{ $product->id }}" class="nameprd">
+                <h3>{{ $product->name }}</h3>
+                <p>
+                    @if($product->stock > 0)
+                        Stocks left: {{ $product->stock }}
+                    @else
+                        Out of stock
+                    @endif
+                </p>
+                <p>Price: Rp{{ number_format($product->price, 2) }}</p>
+            </label>
+
+            <div class="trx-create">
+                <label for="quantity_{{ $product->id }}" class="quantity-label">Quantity:</label>
+                <div class="quantity-container">
+                    <button 
+                        type="button" 
+                        class="quantity-btn decrement" 
+                        onclick="decreaseQuantity('{{ $product->id }}')">-
+                    </button>
+                    <input 
+                        type="number" 
+                        id="quantity_{{ $product->id }}" 
+                        name="quantities[{{ $product->id }}]" 
+                        min="1" 
+                        value="1" 
+                        class="quantity-input" 
+                    >
+                    <button 
+                        type="button" 
+                        class="quantity-btn increment" 
+                        onclick="increaseQuantity('{{ $product->id }}')">+
+                    </button>
                 </div>
             </div>
+        </div>
+
         @endforeach
 
         <!-- Hidden quantity field to submit only the selected product's quantity -->
@@ -141,6 +160,21 @@
                 updateQuantityField(productId); // Update hidden field when quantity changes
             }
         }
+        function filterTickets() {
+            let searchQuery = document.getElementById('searchBar').value.toLowerCase();
+            let ticketContainers = document.querySelectorAll('.cont-crt[data-name]'); // Only elements with class `cont-crt` and `data-name`
+
+            ticketContainers.forEach(ticket => {
+                let ticketName = ticket.getAttribute('data-name');
+
+                if (ticketName.includes(searchQuery)) {
+                    ticket.style.display = "block"; // Show matching ticket
+                } else {
+                    ticket.style.display = "none"; // Hide non-matching ticket
+                }
+            });
+        }
+
     </script>
 
     <style>

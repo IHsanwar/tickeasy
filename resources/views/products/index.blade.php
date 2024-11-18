@@ -38,4 +38,3 @@ navLinks.forEach(link => {
     }
 });</script>
 @endsection
-    

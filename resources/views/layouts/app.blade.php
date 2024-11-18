@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cashier App</title>
+    <title>TickEasy - Easier Way to Your Ticketing Experience</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
      
@@ -34,6 +34,8 @@
 
         @yield('content')
     </div>
+    @yield('footer')
+
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script>document.addEventListener('contextmenu', (e) => e.preventDefault());
 

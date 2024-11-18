@@ -72,7 +72,7 @@ class UserLoginController extends Controller
         Auth::login($user);
 
         // Redirect to dashboard or intended page
-        return redirect()->route('dashboard')->with('success', 'Registration successful! Welcome.');
+        return redirect('/users')->with('success', 'Registration successful! Welcome.');
     }
     public function accountDetails()
 {

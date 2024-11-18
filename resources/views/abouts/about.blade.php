@@ -41,7 +41,7 @@
                 </li>
                 <li class="list-inline-item">
                     <a href="https://wa.me/+6281293080153" class="btn btn-dark btn-sm">
-                        <i class="bi bi-telephone"></i> Phone:+812-9308-0153
+                        <i class="bi bi-telephone"></i> Phone: +62 812-9308-0153
                     </a>
                 </li>
                 <li class="list-inline-item">
@@ -53,10 +53,15 @@
         <!-- Version Info -->
         <p class="infover position-absolute bottom-0 start-0 w-100 text-center">
             Version: 1.20.34 check 
-            <a href="https://github.com" target="_blank">
+            <a href="https://github.com/IHsanwar/tickeasy/" target="_blank">
                 github<i class="bi bi-arrow-up-right-square"></i>
-            </a> for more details
+            </a> for more details<br>
+            
         </p>
+        
+        <p class="copyright">copyright&#xA9Ihsan Wardhana 2024</p>
+            
+        
     </div>
 </div>
 

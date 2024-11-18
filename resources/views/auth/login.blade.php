@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="login-container">
-        <h2><i class="bi bi-people-fill"></i>  Login</h2>
+        <h2><i class="bi bi-people-fill"></i> Login</h2>
         
         <form action="{{ route('login') }}" method="POST" class="login-form">
             @csrf
